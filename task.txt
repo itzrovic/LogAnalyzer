@@ -1,0 +1,59 @@
+📝 Projektidee: Logfile-Analyzer mit Multithreading
+Beschreibung
+
+Schreib ein Programm, das große Logdateien (z. B. Webserver- oder Application-Logs) einliest, verarbeitet und Statistiken ausgibt.
+Der Clou: Die Verarbeitung soll parallel laufen (Multithreading oder Multiprocessing), um mit sehr großen Datenmengen klarzukommen.
+
+Anforderungen / Features
+
+Input
+
+Lies eine oder mehrere große Logdateien ein (du kannst dir Dummy-Logs generieren oder echte Serverlogs von Apache/Nginx verwenden).
+
+Jede Zeile repräsentiert ein Event (z. B. Zugriff mit IP, Timestamp, Statuscode, Request-URL).
+
+Preprocessing
+
+Zerlege jede Logzeile in ihre Bestandteile (z. B. mit Regex).
+
+Speichere sie in einer sinnvollen Datenstruktur (z. B. Dictionaries oder benutzerdefinierte Klassen).
+
+Verarbeitung (parallel)
+
+Teile die Logdatei in Abschnitte (Chunks).
+
+Verarbeite jeden Chunk in einem Worker-Thread/Prozess, der Statistiken berechnet, z. B.:
+
+Häufigste IP-Adressen
+
+Anzahl Requests pro Stunde
+
+Häufigste URLs
+
+Fehlercodes (4xx, 5xx)
+
+Aggregation
+
+Sammle die Ergebnisse der Worker und kombiniere sie zu globalen Statistiken.
+
+Achte darauf, dass die Zusammenführung thread-sicher ist.
+
+Output
+
+Gib eine Übersicht in der Konsole aus (Top 10 IPs, Fehlerquote, etc.).
+
+Bonus: Exportiere die Ergebnisse als CSV oder JSON.
+
+Erweiterungen (falls du noch tiefer gehen willst)
+
+Visualisierung: Mit matplotlib oder seaborn Charts erstellen (Requests pro Stunde, Fehlerverteilung, etc.).
+
+CLI Interface: Nutze argparse, um z. B. Logdatei und Ausgabedatei anzugeben.
+
+Asynchronität vs. Threads: Vergleiche threading, multiprocessing und asyncio für Performance.
+
+Streaming-Modus: Statt nur statische Dateien zu lesen, könnte dein Programm auch kontinuierlich neue Zeilen einlesen (wie tail -f).
+
+👉 Vorteil:
+Du kannst es schrittweise entwickeln. Erst die Parser-Logik, dann die Threads, dann die Aggregation, dann Extras.
+Es wird dich zwingen, dich mit Datenstrukturen, Thread-Synchronisation (Locks, Queues) und Performance-Überlegungen auseinanderzusetzen.
