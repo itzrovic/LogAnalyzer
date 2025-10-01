@@ -1,12 +1,22 @@
 class LogInfo:
     def __init__(self, ip, timestamp, status, url):
-        self.ip = ip
-        self.timestamp = timestamp
-        self.status = status
-        self.url = url
+        self._ip = ip
+        self._timestamp = timestamp
+        self._status = status
+        self._url = url
 
-    def __str__(self):
-        return "ip: " + self.ip + "\ntimestamp: " + self.timestamp + "\nstatus: " + self.status + "\nurl: " + self.url
+    def get_ip(self):
+        return self._ip
+    def get_timestamp(self):
+        return self._timestamp
+    def get_status(self):
+        return self._status
+    def get_url(self):
+        return self._url
+
+    def get_info(self):
+        return "ip: " + self.get_ip() + "\ntimestamp: " + self.get_timestamp() + "\nstatus: " + self.get_status() + "\nurl: " + self.get_url()
+
 
 
 ip1 = "172.16.31.10"
@@ -15,4 +25,4 @@ status1 = '202'
 url1 = 'https://www.facebook.com'
 
 lg1 = LogInfo(ip1, timestamp1, status1, url1)
-print(lg1)
+print(lg1.get_info())
