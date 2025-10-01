@@ -13,3 +13,10 @@ res = re.findall(r"\[(.*?)\]", s)
 print(res)
 
 httpStatusP = '/^[1-5][0-9][0-9]$/'
+
+
+{"ip": self.ip, "timestamp": self.timestamp, "status": self.status, "url": self.url}
+
+
+def __str__(self):
+    return "ip: " + self.ip + "\ntimestamp: " + self.timestamp + "\nstatus: " + self.status + "\nurl: " + self.url
